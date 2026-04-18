@@ -1,4 +1,6 @@
 :root {
+  interpolate-size: allow-keywords;
+  --nav-height: 104px;
   --nav-button-radius: 100px;
   --nav-button-paddings: 0 16px;
 }
@@ -25,8 +27,9 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: var(--nav-height);
   background: #121213;
+  z-index: 1002;
 }
 .nav-container {
   display: flex;
@@ -76,16 +79,29 @@ nav {
   border-radius: var(--nav-button-radius);
   height: 40px;
   background: rgba(222, 222, 238, 0.13);
+  cursor: pointer;
+  color: #ffffff;
 }
 .dropdown {
   position: fixed;
   display: flex;
   justify-content: center;
-  top: 80px;
+  top: var(--nav-height);
   left: 0;
-  height: 50vh;
+  height: 0px;
   width: 100%;
   background: #121213;
+  z-index: 1001;
+  transition: all 0.1s linear;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  padding: 20px 0;
+  &:is(.active) {
+    height: fit-content;
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 .dropdown-container {
   max-width: 1140px;
@@ -146,8 +162,55 @@ nav {
     }
   }
 }
-.hero {
-  height: 200vh;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-image: url("https://alfabank.servicecdn.ru/site-upload/bd/ad/1449/D_Videoblock_528x528_251224.jpg");
+  height: 100%;
+  background: #00000080;
+  z-index: 1000;
+  backdrop-filter: blur(50px);
+  opacity: 0;
+  pointer-events: none;
+  &:is(.active) {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+.hero {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "main main main main sidebar"
+    "main main main main sidebar"
+    "main main main main sidebar"
+    "left left right right sidebar"
+    "left left right right sidebar";
+  padding-top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  width: 100%;
+  gap: 12px;
+  div {
+    background: black;
+    border-radius: 32px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+  div:nth-child(1) {
+    grid-area: main;
+  }
+  div:nth-child(2) {
+    grid-area: left;
+  }
+  div:nth-child(3) {
+    grid-area: right;
+  }
+  div:nth-child(4) {
+    grid-area: sidebar;
+  }
 }

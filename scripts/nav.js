@@ -214,6 +214,14 @@ navItems.forEach((item) => {
   item.addEventListener("pointerenter", () => {
     // console.log(item.dataset.nav);
     // console.log(navigationData[item.dataset.nav]);
+    let dropdown = document.querySelector(".dropdown");
+    dropdown.classList.add("active");
+    let overlay = document.querySelector(".overlay");
+    overlay.classList.add("active");
+    overlay.addEventListener("pointerenter", () => {
+      dropdown.classList.remove("active");
+      overlay.classList.remove("active");
+    });
     let navTitles = document.querySelector("[data-nav-titles]");
     let navContent = document.querySelector("[data-nav-content]");
     navTitles.innerHTML = "";

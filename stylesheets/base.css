@@ -1,0 +1,140 @@
+:root {
+  --nav-button-radius: 100px;
+  --nav-button-paddings: 0 16px;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: "Open Sans", sans-serif;
+  /* color: #ffffff; */
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: #121213;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1140px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 40px;
+  padding: var(--nav-button-paddings);
+  border-radius: var(--nav-button-radius);
+  background: #ffffff00;
+  /* transition: all 0.1s linear; */
+  cursor: pointer;
+  color: #ffffff;
+  &:hover {
+    background: #ffffffff;
+    color: #000000 !important;
+  }
+}
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 100%;
+  gap: 32px;
+}
+.cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: var(--nav-button-paddings);
+  border-radius: var(--nav-button-radius);
+  height: 40px;
+  background: rgba(222, 222, 238, 0.13);
+}
+.dropdown {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 80px;
+  left: 0;
+  height: 50vh;
+  width: 100%;
+  background: #121213;
+}
+.dropdown-container {
+  max-width: 1140px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 228px;
+  color: #ffffff80;
+  a {
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    transform-origin: left;
+    &:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+  }
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  a {
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    transform-origin: left;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+.hero {
+  height: 200vh;
+  width: 100%;
+  background-image: url("https://alfabank.servicecdn.ru/site-upload/bd/ad/1449/D_Videoblock_528x528_251224.jpg");
+}

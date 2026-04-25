@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
     <script src="scripts/nav.js" defer></script>
+    <script src="scripts/cards.js" defer></script>
   </head>
   <body>
     <nav>
@@ -55,6 +56,18 @@
       <div></div>
       <div></div>
       <div></div>
+    </section>
+    <section class="services">
+      <div>
+        <h2></h2>
+        <div class="segmented-control">
+          <div class="active" data-card-category="all">Для всех</div>
+          <div data-card-category="small-business">Малому бизнесу</div>
+          <div data-card-category="large-business">Крупному бизнесу</div>
+          <div data-card-background></div>
+        </div>
+      </div>
+      <div class="cards" data-cards-container></div>
     </section>
     <a href="cards/card.html"></a>
   </body>

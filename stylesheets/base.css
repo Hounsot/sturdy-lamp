@@ -3,6 +3,7 @@
   --nav-height: 104px;
   --nav-button-radius: 100px;
   --nav-button-paddings: 0 16px;
+  --dark-grey: #121213;
 }
 
 p,
@@ -13,7 +14,8 @@ h3,
 h4,
 h5,
 h6,
-a {
+a,
+div {
   font-family: "Open Sans", sans-serif;
   /* color: #ffffff; */
 }
@@ -212,5 +214,68 @@ nav {
   }
   div:nth-child(4) {
     grid-area: sidebar;
+  }
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100vh;
+}
+.segmented-control {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: fit-content;
+  height: 48px;
+  width: 556px;
+  background: #edeef0;
+  border-radius: 100px;
+  overflow: hidden;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    font-size: 16px;
+    &:is(.active) {
+      color: #ffffff;
+    }
+    &:last-of-type {
+      background: var(--dark-grey);
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: calc(100% / 3);
+      border-radius: 100px;
+      z-index: 1;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 267px;
+  padding: 32px;
+  border-radius: 32px;
+  height: 298px;
+  background: red;
+  background-size: cover;
+  p {
+    text-align: center;
   }
 }
